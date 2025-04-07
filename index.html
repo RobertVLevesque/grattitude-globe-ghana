@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GR-ATTITUDE | Globe Demo</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://unpkg.com/topojson@3"></script>
+  <title>GR-ATTITUDE | Cyberpunk Globe</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="globeViz"></div>
-
-  <div class="popup" id="popup" style="display:none;">
+  <div id="popup" class="popup hidden">
+    <h2 id="popup-title"></h2>
+    <p><strong>Artist:</strong> <span id="popup-artist">TBD</span></p>
+    <p><em id="popup-story"></em></p>
     <button onclick="closePopup()">Close</button>
   </div>
 
   <script src="https://unpkg.com/three"></script>
-  <script src="https://unpkg.com/globe.gl"></script>
+  <script src="https://unpkg.com/three-globe"></script>
+  <script src="https://unpkg.com/topojson@3"></script>
+  <script src="https://unpkg.com/d3"></script>
   <script src="script.js"></script>
 </body>
 </html>
