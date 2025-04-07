@@ -12,7 +12,7 @@ const world = Globe()
 ])
 
     .pointAltitude(0.1)
-    .pointColor(() => 'red')
+    .pointColor(() => 'blue')
    .onPointClick((point) => {
   const popup = document.getElementById('popup');
   popup.innerHTML = `
@@ -23,6 +23,7 @@ const world = Globe()
   `;
   popup.style.display = 'block';
 });
+
 
 
 function closePopup() {
