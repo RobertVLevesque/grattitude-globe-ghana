@@ -13,11 +13,17 @@ const world = Globe()
 
     .pointAltitude(0.1)
     .pointColor(() => 'red')
-    .onPointClick((point) => {
-      if (point.country === 'Ghana') {
-        document.getElementById('popup').style.display = 'block';
-      }
-    });
+   .onPointClick((point) => {
+  const popup = document.getElementById('popup');
+  popup.innerHTML = `
+    <h2>🌍 ${point.country}</h2>
+    <p><strong>Artist:</strong> TBD</p>
+    <p><em>"This is a placeholder story for ${point.country}."</em></p>
+    <button onclick="closePopup()">Close</button>
+  `;
+  popup.style.display = 'block';
+});
+
 
 function closePopup() {
   document.getElementById('popup').style.display = 'none';
