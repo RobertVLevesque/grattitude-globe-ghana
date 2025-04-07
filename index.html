@@ -3,11 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GR-ATTITUDE | Ghana Globe Demo</title>
+  <title>GR-ATTITUDE | Globe Demo</title>
   <link rel="stylesheet" href="style.css" />
-  
-  <!-- Required for polygon data -->
   <script src="https://unpkg.com/topojson@3"></script>
 </head>
 <body>
-  <div id="globeViz"></div
+  <div id="globeViz"></div>
+
+  <div class="popup" id="popup" style="display:none;">
+    <button onclick="closePopup()">Close</button>
+  </div>
+
+  <script src="https://unpkg.com/three"></script>
+  <script src="https://unpkg.com/globe.gl"></script>
+  <script src="script.js"></script>
+</body>
+</html>
