@@ -22,6 +22,10 @@ fetch('https://unpkg.com/world-atlas/countries-110m.json')
           <button onclick="closePopup()">Close</button>
         `;
         popup.style.display = 'block';
+
+function closePopup() {
+  document.getElementById('popup').style.display = 'none';
+}
       })
       .backgroundColor('#111');
   });
