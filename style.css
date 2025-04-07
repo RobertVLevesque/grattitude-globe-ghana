@@ -17,8 +17,9 @@ body {
   border: 1px solid #444;
   padding: 20px;
   border-radius: 10px;
-  display: none;
   max-width: 300px;
+  display: none;
+  z-index: 999;
 }
 .popup h2 {
   margin-top: 0;
