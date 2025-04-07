@@ -1,15 +1,33 @@
 
 const world = Globe()
-  (document.getElementById('globeViz'))
-    .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
-    .backgroundColor('#111')
-    .pointsData([
-  { lat: 7.95, lng: -1.02, size: 1, country: 'Ghana' },
-  { lat: 56.1304, lng: -106.3468, size: 1, country: 'Canada' },
-  { lat: 36.2048, lng: 138.2529, size: 1, country: 'Japan' },
-  { lat: -14.2350, lng: -51.9253, size: 1, country: 'Brazil' },
-  { lat: 18.1096, lng: -77.2975, size: 1, country: 'Jamaica' }
-])
+fetch('https://unpkg.com/world-atlas/countries-110m.json')
+  .then(res => res.json())
+  .then(countries => {
+    const world = Globe()
+      (document.getElementById('globeViz'))
+      .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
+      .polygonsData(
+        // Convert topojson to GeoJSON
+        window.topojson.feature(countries, countries.objects.countries).features
+      )
+      .polygonAltitude(0.01)
+      .polygonCapColor(() => 'rgba(255, 100, 100, 0.7)')
+      .polygonSideColor(() => 'rgba(0, 100, 255, 0.15)')
+      .polygonStrokeColor(() => '#111')
+      .onPolygonClick(feat => {
+        const popup = document.getElementById('popup');
+        const name = feat.properties.name;
+        popup.innerHTML = `
+          <h2>🌍 ${name}</h2>
+          <p><strong>Artist:</strong> TBD</p>
+          <p><em>"This is a placeholder story for ${name}."</em></p>
+          <button onclick="closePopup()">Close</button>
+        `;
+        popup.style.display = 'block';
+      })
+      .backgroundColor('#111');
+  });
+
 
     .pointAltitude(0.1)
     .pointColor(() => 'blue')
