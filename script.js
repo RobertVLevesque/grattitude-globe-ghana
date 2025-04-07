@@ -1,5 +1,3 @@
-
-const world = Globe()
 fetch('https://unpkg.com/world-atlas/countries-110m.json')
   .then(res => res.json())
   .then(countries => {
@@ -27,23 +25,3 @@ fetch('https://unpkg.com/world-atlas/countries-110m.json')
       })
       .backgroundColor('#111');
   });
-
-
-    .pointAltitude(0.1)
-    .pointColor(() => 'blue')
-   .onPointClick((point) => {
-  const popup = document.getElementById('popup');
-  popup.innerHTML = `
-    <h2>🌍 ${point.country}</h2>
-    <p><strong>Artist:</strong> TBD</p>
-    <p><em>"This is a placeholder story for ${point.country}."</em></p>
-    <button onclick="closePopup()">Close</button>
-  `;
-  popup.style.display = 'block';
-});
-
-
-
-function closePopup() {
-  document.getElementById('popup').style.display = 'none';
-}
